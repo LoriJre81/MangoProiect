@@ -12,7 +12,7 @@ public class BasePage {
         LOG.info("Start test") ;
         System.setProperty("webdriver.chrome.driver","C://Webdrivers/chromedriver121.exe") ;
         driver=new ChromeDriver() ;
-        String url="https://www.mangooutlet.com/ro/ro.automationtesting.in/Index.html" ;
+        String url="https://www.mangooutlet.com/ro" ;
         driver.get(url) ;
 
 
@@ -31,7 +31,7 @@ public class BasePage {
     }
 
     public static String  returnBaseURL(){
-        return"https://www.mangooutlet.com/ro/ro.automationtesting.in/Index.html" ;
+        return"https://www.mangooutlet.com/ro" ;
 
 
     }
