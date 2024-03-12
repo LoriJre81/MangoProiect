@@ -1,47 +1,90 @@
 package pages;
-import org.openqa.selenium.WebDriver ;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class BasePage {
-    private static final Logger LOG=LoggerFactory.getLogger(BasePage.class) ;
-    public static WebDriver driver ;
+    private static final Logger LOG = LoggerFactory.getLogger(BasePage.class);
+    public static WebDriver driver;
 
-    public static void setUp(){
-        LOG.info("Start test") ;
-        System.setProperty("webdriver.chrome.driver","C://Webdrivers/chromedriver121.exe") ;
-        driver=new ChromeDriver() ;
-        String url="https://www.mangooutlet.com/ro" ;
-        driver.get(url) ;
-
-
-        LOG.info("Open browser maximize") ;
-        driver.manage().window().maximize() ;
+    public static void setUp() {
+        LOG.info("Start test");
+        System.setProperty("webdriver.chrome.driver", "C://Webdrivers/chromedriver121.exe");
+        driver = new ChromeDriver();
+        String url = "https://www.mangooutlet.com/ro";
+        driver.get(url);
 
 
-    }
+        LOG.info("Open browser maximize");
+        driver.manage().window().maximize();
 
 
-    public static void tearDown(){
-        LOG.info("Close the browser") ;
-        driver.quit() ;
+
 
 
     }
 
-    public static String  returnBaseURL(){
-        return"https://www.mangooutlet.com/ro" ;
+
+    public static void tearDown() {
+        LOG.info("Close the browser");
+        driver.quit();
 
 
     }
 
-    public static String getBaseURL(){
-        String baseurl=returnBaseURL() ;
-        if(baseurl!=null){
-            return baseurl.replace("Index.html","") ;
+    public static String returnBaseURL() {
+        return "https://www.mangooutlet.com/ro";
+
+
+    }
+
+    public static String getBaseURL() {
+        String baseurl = returnBaseURL();
+        if (baseurl != null) {
+            return baseurl.replace("Index.html", "");
         }
-        return baseurl ;
+        return baseurl;
+
+    }
+
+    public static void sleep(long ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+//        class  Scrolling{
+//            public void main(String[] args){
+//                System.setProperty("webdriver.chrome.driver", "C://Webdrivers/chromedriver121.exe");
+//                driver = new ChromeDriver();
+//                String url = "https://www.mangooutlet.com/ro";
+//                driver.get(url);
+//                LOG.info("Open browser maximize");
+//                driver.manage().window().maximize();
+//                JavascriptExecutor js=(JavascriptExecutor)driver ;
+//                WebElement abonare=driver.findElement((By.xpath("//form[@class='ezV1h CHbs1']"))) ;
+//                js.executeScript("arguments[0].scrollIntoView() ;",abonare) ;
+//
+//
+//            }
+
+
+
+
+        }
+
+
+
+
+
+
+
+
 
     }
 
@@ -49,7 +92,3 @@ public class BasePage {
 
 
 
-
-
-
-}
